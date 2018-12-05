@@ -6,21 +6,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="">
-    <title>词法作用域 | the blog of lin</title>
+    <title>函数作用域和块作用域 | the blog of lin</title>
 
     <!-- Open Graph -->
-    <meta name="description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+    <meta name="description" content="&amp;#x51FD;&amp;#x6570;&amp;#x662F;JavaScript&amp;#x4E2D;&amp;#x6700;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5355;&amp;#x5143;&amp;#x3002;&amp;#x672C;&amp;#x8D28;&amp;#x4E0A;&amp;#xFF0C;&amp;#x58F0;&amp;#x660E;&amp;#x5728;&amp;#x4E00;&amp;#x4E2A;&amp;#x51F">
 <meta name="keywords" content="读书笔记 -《你不知道的JavaScript》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="词法作用域">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/词法作用域/index.html">
+<meta property="og:title" content="函数作用域和块作用域">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/函数作用域和块作用域/index.html">
 <meta property="og:site_name" content="the blog of lin">
-<meta property="og:description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+<meta property="og:description" content="&amp;#x51FD;&amp;#x6570;&amp;#x662F;JavaScript&amp;#x4E2D;&amp;#x6700;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5355;&amp;#x5143;&amp;#x3002;&amp;#x672C;&amp;#x8D28;&amp;#x4E0A;&amp;#xFF0C;&amp;#x58F0;&amp;#x660E;&amp;#x5728;&amp;#x4E00;&amp;#x4E2A;&amp;#x51F">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T15:18:17.231Z">
+<meta property="og:updated_time" content="2018-12-05T16:38:08.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="词法作用域">
-<meta name="twitter:description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+<meta name="twitter:title" content="函数作用域和块作用域">
+<meta name="twitter:description" content="&amp;#x51FD;&amp;#x6570;&amp;#x662F;JavaScript&amp;#x4E2D;&amp;#x6700;&amp;#x5E38;&amp;#x89C1;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x5355;&amp;#x5143;&amp;#x3002;&amp;#x672C;&amp;#x8D28;&amp;#x4E0A;&amp;#xFF0C;&amp;#x58F0;&amp;#x660E;&amp;#x5728;&amp;#x4E00;&amp;#x4E2A;&amp;#x51F">
 
     <script type="application/ld+json">
 {
@@ -133,7 +133,7 @@
             <!--<div class="ui one column grid">-->
                 <!--<div class="column">-->
                     <!--<div class="ui main container">-->
-                        <div id="post-词法作用域" class="ui main container article-type-post">
+                        <div id="post-函数作用域和块作用域" class="ui main container article-type-post">
 
     
 
@@ -146,7 +146,7 @@
 
 <h1 class="ui header">
     
-    词法作用域
+    函数作用域和块作用域
 </h1>
 
 
@@ -155,14 +155,12 @@
 
                     <div class="article-entry" itemprop="articleBody">
                         
-                        <p>&#x4F5C;&#x7528;&#x57DF;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x6A21;&#x578B;</p>
-<ul class="ui list">
-<li><strong>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x5927;&#x591A;&#x6570;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x91C7;&#x7528;&#xFF09;</strong></li>
-<li>&#x52A8;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#xFF08;bash&#x811A;&#x672C;&#xFF0C;Perl&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6A21;&#x5F0F;&#x91C7;&#x7528;&#xFF09;</li>
-</ul>
-<p>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x610F;&#x5473;&#x7740;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x7531;&#x4E66;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#x51FD;&#x6570;&#x7684;&#x4F4D;&#x7F6E;&#x6765;&#x51B3;&#x5B9A;&#x7684;&#x3002;&#x7F16;&#x8BD1;&#x7684;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x9636;&#x6BB5;&#x57FA;&#x672C;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x5168;&#x90E8;&#x6807;&#x8BC6;&#x7B26;&#x5728;&#x54EA;&#x91CC;&#x4EE5;&#x53CA;&#x662F;&#x5982;&#x4F55;&#x58F0;&#x660E;&#x7684;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x9884;&#x6D4B;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x5982;&#x4F55;&#x5BF9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#x3002;</p>
-<p>&#x56E0;&#x6B64;&#x5F15;&#x64CE;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5BF9;&#x4F5C;&#x7528;&#x57DF;&#x67E5;&#x627E;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x65F6;&#x6240;&#x9700;&#x7684;&#x67E5;&#x627E;&#x65F6;&#x95F4;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x3002;</p>
-<p>&#x800C;&#x4E24;&#x4E2A;&#x201C;&#x6B3A;&#x9A97;&#x201D;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x673A;&#x5236;<strong>eval</strong>&#x548C;<strong>with</strong>&#x4F1A;&#x4F7F;&#x5F97;&#x5F15;&#x64CE;&#x65E0;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5BF9;&#x4F5C;&#x7528;&#x57DF;&#x67E5;&#x627E;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x53D8;&#x6162;&#xFF0C;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x4ED6;&#x4EEC;&#x3002;</p>
+                        <p>&#x51FD;&#x6570;&#x662F;JavaScript&#x4E2D;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5355;&#x5143;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x58F0;&#x660E;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#x6216;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x6240;&#x5904;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x201C;&#x9690;&#x85CF;&#x201D;&#x8D77;&#x6765;&#xFF0C;&#x8FD9;&#x662F;&#x6709;&#x610F;&#x4E3A;&#x4E4B;&#x7684;&#x826F;&#x597D;&#x8F6F;&#x4EF6;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF0C;&#x6709;&#x5229;&#x4E8E;&#x5B9E;&#x73B0;&#x5185;&#x5BB9;&#x79C1;&#x6709;&#x5316;&#x548C;&#x89C4;&#x907F;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;IIFE&#xFF09;&#x6709;&#x5229;&#x4E8E;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x540D;&#x4E0D;&#x6C61;&#x67D3;&#x6240;&#x5728;&#x4F5C;&#x7528;&#x57DF;&#x4E14;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x3002;IIFE&#x5F62;&#x5F0F;&#x6709;&#x4E24;&#x79CD;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">}) ()   <span class="comment">//&#x4F20;&#x7EDF;&#x5F62;&#x5F0F;</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{}())   <span class="comment">//&#x6539;&#x8FDB;&#x5F62;&#x5F0F;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x5168;&#x51ED;&#x4E2A;&#x4EBA;&#x559C;&#x597D;</span></span><br></pre></td></tr></table></figure>
+<p>&#x51FD;&#x6570;&#x4E0D;&#x662F;&#x552F;&#x4E00;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5355;&#x5143;&#x3002;&#x5757;&#x4F5C;&#x7528;&#x57DF;&#x6307;&#x7684;&#x662F;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x5C5E;&#x4E8E;&#x6240;&#x5904;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5C5E;&#x4E8E;&#x67D0;&#x4E2A;&#x4EE3;&#x7801;&#x5757;&#x3002;&#x4ECE;ES3&#x5F00;&#x59CB;&#xFF0C;try/catch&#x7ED3;&#x6784;&#x5728;catch&#x5206;&#x53E5;&#x4E2D;&#x5177;&#x6709;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x3002;ES6&#x4E2D;&#x7684;let&#x548C;const&#x4E5F;&#x53EF;&#x4EE5;&#x628A;&#x53D8;&#x91CF;&#x7ED1;&#x5B9A;&#x5728;&#x67D0;&#x4E2A;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF0C;&#x4F7F;&#x4E4B;&#x4E0D;&#x88AB;&#x5916;&#x90E8;&#x4F5C;&#x7528;&#x57DF;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x4F18;&#x52BF;&#x8FD8;&#x4F53;&#x73B0;&#x5728;<strong>&#x5783;&#x573E;&#x6536;&#x96C6; </strong> <em>&#xFF08;&#x660E;&#x786E;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF09;</em>&#x673A;&#x5236;&#x53CA;<strong>&#x5FAA;&#x73AF;</strong>  <em>&#xFF08;&#x6BCF;&#x4E2A;&#x8FED;&#x4EE3;&#x91CD;&#x65B0;&#x7ED1;&#x5B9A;&#xFF09;</em>&#x4E24;&#x65B9;&#x9762;</p>
+<p>JavaScript&#x5F15;&#x64CE;&#x7684;&#x5783;&#x573E;&#x6536;&#x96C6;&#x673A;&#x5236;&#x4F1A;&#x5728;&#x53D8;&#x91CF;&#x4F7F;&#x7528;&#x8FC7;&#x540E;&#x5C06;&#x5176;&#x56DE;&#x6536;&#xFF0C;&#x907F;&#x514D;&#x989D;&#x5916;&#x5360;&#x7528;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6709;&#x8986;&#x76D6;&#x6574;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x95ED;&#x5305;&#xFF0C;&#x5F15;&#x64CE;&#x6781;&#x6709;&#x53EF;&#x80FD;&#x4F9D;&#x7136;&#x4FDD;&#x5B58;&#x8FD9;&#x5757;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x5728;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x5730;&#x544A;&#x8BC9;&#x5F15;&#x64CE;&#x8BE5;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x4E86;&#x3002;</p>
 
                         
                     </div>
@@ -173,7 +171,7 @@
 
                     <div class="description post-description">
     <span class="post-description-item">
-        <time datetime="2018-12-03T14:53:32.000Z" itemprop="datePublished">2018-12-03</time>
+        <time datetime="2018-12-05T05:42:35.000Z" itemprop="datePublished">2018-12-05</time>
 
     </span>
     <span class="post-description-item">
@@ -202,23 +200,16 @@
             <div class="column nav-left">
                 
 
-                <a href="/2018/12/05/函数作用域和块作用域/" class="ui tiny button">
-
-                    <i class="angle left icon"></i>
-                    
-                    函数作用域和块作用域
-                    
-
-                </a>
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
 
                 
             </div>
             <div class="column nav-right">
                 
 
-                <a href="/2018/12/03/读书笔记-《你不知道的JavaScript》-LHS与RHS/" class="ui tiny button">
+                <a href="/2018/12/03/词法作用域/" class="ui tiny button">
                     
-                    LHS与RHS
+                    词法作用域
                     
                     <i class="angle right icon"></i></a>
                 
