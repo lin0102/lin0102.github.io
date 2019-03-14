@@ -6,21 +6,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="">
-    <title>词法作用域 | the blog of lin</title>
+    <title>LHS与RHS | the blog of lin</title>
 
     <!-- Open Graph -->
-    <meta name="description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+    <meta name="description" content="LHS&amp;#xFF1A;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x76EE;&amp;#x6807;&amp;#x662F;&amp;#x8C01; RHS&amp;#xFF1A;&amp;#x8C01;&amp;#x662F;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x6E90;&amp;#x5934; &amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x662F;">
 <meta name="keywords" content="读书笔记 -《你不知道的JavaScript》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="词法作用域">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/词法作用域/index.html">
+<meta property="og:title" content="LHS与RHS">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/LHS与RHS/index.html">
 <meta property="og:site_name" content="the blog of lin">
-<meta property="og:description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+<meta property="og:description" content="LHS&amp;#xFF1A;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x76EE;&amp;#x6807;&amp;#x662F;&amp;#x8C01; RHS&amp;#xFF1A;&amp;#x8C01;&amp;#x662F;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x6E90;&amp;#x5934; &amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x662F;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T15:18:17.231Z">
+<meta property="og:updated_time" content="2019-03-14T16:03:38.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="词法作用域">
-<meta name="twitter:description" content="&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x6709;&amp;#x4EE5;&amp;#x4E0B;&amp;#x4E24;&amp;#x79CD;&amp;#x4E3B;&amp;#x8981;&amp;#x5DE5;&amp;#x4F5C;&amp;#x6A21;&amp;#x578B;  &amp;#x8BCD;&amp;#x6CD5;&amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#xFF08;&amp;#x5927;&amp;#x591A;&amp;#x6570;&amp;#x7F16;&amp;#x7A0">
+<meta name="twitter:title" content="LHS与RHS">
+<meta name="twitter:description" content="LHS&amp;#xFF1A;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x76EE;&amp;#x6807;&amp;#x662F;&amp;#x8C01; RHS&amp;#xFF1A;&amp;#x8C01;&amp;#x662F;&amp;#x8D4B;&amp;#x503C;&amp;#x64CD;&amp;#x4F5C;&amp;#x7684;&amp;#x6E90;&amp;#x5934; &amp;#x4F5C;&amp;#x7528;&amp;#x57DF;&amp;#x662F;">
 
     <script type="application/ld+json">
 {
@@ -133,7 +133,7 @@
             <!--<div class="ui one column grid">-->
                 <!--<div class="column">-->
                     <!--<div class="ui main container">-->
-                        <div id="post-词法作用域" class="ui main container article-type-post">
+                        <div id="post-LHS与RHS" class="ui main container article-type-post">
 
     
 
@@ -146,7 +146,7 @@
 
 <h1 class="ui header">
     
-    词法作用域
+    LHS与RHS
 </h1>
 
 
@@ -155,14 +155,13 @@
 
                     <div class="article-entry" itemprop="articleBody">
                         
-                        <p>&#x4F5C;&#x7528;&#x57DF;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x6A21;&#x578B;</p>
-<ul class="ui list">
-<li><strong>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x5927;&#x591A;&#x6570;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x91C7;&#x7528;&#xFF09;</strong></li>
-<li>&#x52A8;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#xFF08;bash&#x811A;&#x672C;&#xFF0C;Perl&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x6A21;&#x5F0F;&#x91C7;&#x7528;&#xFF09;</li>
-</ul>
-<p>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x610F;&#x5473;&#x7740;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x7531;&#x4E66;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#x51FD;&#x6570;&#x7684;&#x4F4D;&#x7F6E;&#x6765;&#x51B3;&#x5B9A;&#x7684;&#x3002;&#x7F16;&#x8BD1;&#x7684;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x9636;&#x6BB5;&#x57FA;&#x672C;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x5168;&#x90E8;&#x6807;&#x8BC6;&#x7B26;&#x5728;&#x54EA;&#x91CC;&#x4EE5;&#x53CA;&#x662F;&#x5982;&#x4F55;&#x58F0;&#x660E;&#x7684;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x9884;&#x6D4B;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x5982;&#x4F55;&#x5BF9;&#x5B83;&#x4EEC;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#x3002;</p>
-<p>&#x56E0;&#x6B64;&#x5F15;&#x64CE;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5BF9;&#x4F5C;&#x7528;&#x57DF;&#x67E5;&#x627E;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x65F6;&#x6240;&#x9700;&#x7684;&#x67E5;&#x627E;&#x65F6;&#x95F4;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x3002;</p>
-<p>&#x800C;&#x4E24;&#x4E2A;&#x201C;&#x6B3A;&#x9A97;&#x201D;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x673A;&#x5236;<strong>eval</strong>&#x548C;<strong>with</strong>&#x4F1A;&#x4F7F;&#x5F97;&#x5F15;&#x64CE;&#x65E0;&#x6CD5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5BF9;&#x4F5C;&#x7528;&#x57DF;&#x67E5;&#x627E;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x53D8;&#x6162;&#xFF0C;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x4ED6;&#x4EEC;&#x3002;</p>
+                        <p><strong>LHS&#xFF1A;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7684;&#x76EE;&#x6807;&#x662F;&#x8C01;</strong></p>
+<p><strong>RHS&#xFF1A;&#x8C01;&#x662F;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7684;&#x6E90;&#x5934;</strong></p>
+<p>&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x4E00;&#x5957;&#x89C4;&#x5219;&#xFF0C;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x5728;&#x4F55;&#x5904;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x67E5;&#x627E;&#x53D8;&#x91CF;&#x3002;&#x5982;&#x679C;&#x67E5;&#x627E;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x4F7F;&#x7528;LHS&#x67E5;&#x8BE2;&#xFF1B;&#x5982;&#x679C;&#x76EE;&#x7684;&#x662F;&#x83B7;&#x53D6;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x4F1A;&#x4F7F;&#x7528;RHS&#x67E5;&#x8BE2;&#x3002;</p>
+<p>LHS&#x548C;RHS&#x67E5;&#x8BE2;&#x90FD;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x6267;&#x884C;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x5F00;&#x59CB;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x9700;&#x8981;&#xFF0C;&#x5C31;&#x4F1A;&#x5411;&#x4E0A;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x7EE7;&#x7EED;&#x67E5;&#x627E;&#x76EE;&#x6807;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x8FD9;&#x6837;&#x6BCF;&#x6B21;&#x4E0A;&#x5347;&#x4E00;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6700;&#x540E;&#x62B5;&#x8FBE;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x65E0;&#x8BBA;&#x627E;&#x5230;&#x6216;&#x6CA1;&#x627E;&#x5230;&#x90FD;&#x5C06;&#x505C;&#x6B62;&#x3002;</p>
+<p>&#x4E0D;&#x6210;&#x529F;&#x7684;RHS&#x5F15;&#x7528;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;ReferenceError&#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;RHS&#x6210;&#x529F;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x5C1D;&#x8BD5;&#x5BF9;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x4E0D;&#x5408;&#x7406;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x4F8B;&#x5982;&#x5BF9;&#x975E;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5F15;&#x64CE;&#x4F1A;&#x629B;&#x51FA;TypeError&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x5728;&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x4E0D;&#x6210;&#x529F;&#x7684;LHS&#x5F15;&#x7528;&#x4F1A;&#x5BFC;&#x81F4;&#x81EA;&#x52A8;&#x9690;&#x5F0F;&#x5730;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x4F7F;&#x7528;LHS&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;&#x4F5C;&#x4E3A;&#x6807;&#x8BC6;&#x7B26;&#xFF1B;&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x629B;&#x51FA;ReferenceError&#x5F02;&#x5E38;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> b = a;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">2</span>);</span><br><span class="line"><span class="comment">//LHS&#x67E5;&#x8BE2;&#x6709;3&#x5904;&#xFF0C;&#x5206;&#x522B;&#x662F;c = ...;&#x3001;a = 2&#xFF08;&#x9690;&#x5F0F;&#x53D8;&#x91CF;&#x5206;&#x914D;&#xFF09;&#x3001;b = ...</span></span><br><span class="line"><span class="comment">//RHS&#x67E5;&#x8BE2;&#x6709;&#x56DB;&#x5904;&#xFF0C;&#x5206;&#x522B;&#x662F;foo(2...&#x3001;= a;&#x3001;a ...&#x3001;...b</span></span><br></pre></td></tr></table></figure>
 
                         
                     </div>
@@ -173,7 +172,7 @@
 
                     <div class="description post-description">
     <span class="post-description-item">
-        <time datetime="2018-12-03T14:53:32.000Z" itemprop="datePublished">2018-12-03</time>
+        <time datetime="2018-12-03T08:36:36.000Z" itemprop="datePublished">2018-12-03</time>
 
     </span>
     <span class="post-description-item">
@@ -202,11 +201,11 @@
             <div class="column nav-left">
                 
 
-                <a href="/2018/12/05/函数作用域和块作用域/" class="ui tiny button">
+                <a href="/2018/12/03/词法作用域/" class="ui tiny button">
 
                     <i class="angle left icon"></i>
                     
-                    函数作用域和块作用域
+                    词法作用域
                     
 
                 </a>
@@ -216,9 +215,9 @@
             <div class="column nav-right">
                 
 
-                <a href="/2018/12/03/LHS与RHS/" class="ui tiny button">
+                <a href="/2018/12/03/nodejs - 聊聊stream/" class="ui tiny button">
                     
-                    LHS与RHS
+                    聊聊stream
                     
                     <i class="angle right icon"></i></a>
                 
